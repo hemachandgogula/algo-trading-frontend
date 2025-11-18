@@ -22,6 +22,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
+import TimelineIcon from '@mui/icons-material/Timeline';
 
 const DRAWER_WIDTH = 240;
 
@@ -54,6 +55,7 @@ export const Layout = ({ children }: LayoutProps) => {
 
   const menuItems = [
     { label: 'Home', icon: <HomeIcon />, path: '/dashboard' },
+    { label: 'Live Monitoring', icon: <TimelineIcon />, path: '/monitoring' },
     { label: 'Settings', icon: <SettingsIcon />, path: '/settings' },
   ];
 

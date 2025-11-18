@@ -5,6 +5,7 @@ import { LoginPage } from '@pages/LoginPage';
 import { RegisterPage } from '@pages/RegisterPage';
 import { DashboardPage } from '@pages/DashboardPage';
 import { SettingsPage } from '@pages/SettingsPage';
+import { LiveMonitoringPage } from '@pages/LiveMonitoringPage';
 import { Layout } from '@components/Layout';
 import { ProtectedRoute } from '@components/ProtectedRoute';
 
@@ -29,6 +30,16 @@ export const AppRouter = () => {
             <ProtectedRoute>
               <Layout>
                 <DashboardPage />
+              </Layout>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/monitoring"
+          element={
+            <ProtectedRoute>
+              <Layout>
+                <LiveMonitoringPage />
               </Layout>
             </ProtectedRoute>
           }

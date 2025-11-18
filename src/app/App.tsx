@@ -4,6 +4,7 @@ import { Global } from '@emotion/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { theme } from '@config/theme';
 import { globalStyles } from '@config/globalStyles';
+import { ToastContainer } from '@components/ToastContainer';
 import { AppRouter } from './Router';
 
 const queryClient = new QueryClient({
@@ -22,6 +23,7 @@ function App() {
         <CssBaseline />
         <Global styles={globalStyles} />
         <AppRouter />
+        <ToastContainer />
       </ThemeProvider>
     </QueryClientProvider>
   );
