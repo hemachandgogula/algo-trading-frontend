@@ -7,13 +7,15 @@ A modern React + TypeScript frontend application for a market data trading platf
 - ⚡ **Fast Development**: Powered by Vite with Hot Module Replacement (HMR)
 - 🔒 **Authentication**: JWT-based login/register with protected routes
 - 🎨 **Material-UI**: Professional component library with responsive design
-- 🔄 **State Management**: Zustand for global auth state
+- 🔄 **State Management**: Zustand for global auth state and notifications
 - 📊 **Data Fetching**: TanStack Query (React Query) for server state management
 - 🛣️ **Routing**: React Router v6 with nested routes
 - 📱 **Responsive**: Mobile-first responsive design
 - 🧪 **Testing**: Vitest with React Testing Library
 - 🧹 **Code Quality**: ESLint, Prettier, Husky pre-commit hooks
-- 🌐 **WebSocket Ready**: Socket.io-client integrated for real-time updates
+- 🌐 **Real-time Monitoring**: WebSocket support with automatic fallback polling
+- 📈 **Live Trading Dashboard**: Real-time ticker, strategy controls, and activity feeds
+- 🔔 **Global Notifications**: Toast system for all user interactions
 
 ## Tech Stack
 
@@ -56,15 +58,24 @@ src/
 │   ├── LoginPage.tsx        # Login page
 │   ├── RegisterPage.tsx     # Registration page
 │   ├── DashboardPage.tsx    # Main dashboard
-│   └── SettingsPage.tsx     # User settings
+│   ├── SettingsPage.tsx     # User settings
+│   └── LiveMonitoringPage.tsx # Live trading monitor
 ├── components/
 │   ├── Layout.tsx           # Main layout with sidebar/topbar
-│   └── ProtectedRoute.tsx   # Route guard component
+│   ├── ProtectedRoute.tsx   # Route guard component
+│   ├── LiveTicker.tsx       # Real-time market quotes
+│   ├── ActivityDashboard.tsx # Strategy events feed
+│   ├── StrategyControls.tsx # Strategy lifecycle management
+│   ├── ConnectionStatus.tsx # WebSocket status indicator
+│   └── ToastContainer.tsx   # Global notification display
+├── services/
+│   └── websocketService.ts  # WebSocket management & real-time updates
 ├── api/
 │   ├── axios.ts             # Axios instance with interceptors
 │   └── auth.ts              # Auth API endpoints
 ├── store/
-│   └── authStore.ts         # Zustand auth store
+│   ├── authStore.ts         # Zustand auth store
+│   └── toastStore.ts        # Zustand notification store
 ├── hooks/
 │   └── useAuth.ts           # Custom auth hook
 ├── config/
@@ -76,7 +87,10 @@ src/
 ├── __tests__/
 │   ├── setup.ts             # Test setup
 │   ├── Router.test.tsx      # Router tests
-│   └── ProtectedRoute.test.tsx # Route protection tests
+│   ├── ProtectedRoute.test.tsx # Route protection tests
+│   ├── websocketService.test.ts # WebSocket service tests
+│   ├── toastStore.test.ts   # Toast store tests
+│   └── LiveMonitoring.integration.test.tsx # Integration tests
 └── main.tsx                 # React DOM entry point
 ```
 
@@ -352,6 +366,32 @@ For issues and questions:
 - Create an issue in the repository
 - Check existing documentation
 - Review the backend API documentation
+
+## Live Monitoring Feature
+
+### Overview
+
+The Live Monitoring UI provides real-time visibility into active trading strategies:
+
+- 📊 **Live Ticker**: Real-time market quotes for selected symbols
+- 📈 **Activity Dashboard**: Streaming trades, signals, and logs
+- 🎮 **Strategy Controls**: Start/stop/pause strategies and adjust parameters
+- 🔗 **Connection Status**: WebSocket health and latency monitoring
+- 🔄 **Fallback Support**: Automatic polling when WebSocket unavailable
+
+### Getting Started with Live Monitoring
+
+1. Navigate to "Live Monitoring" in the sidebar
+2. Add market symbols to monitor
+3. Select and control your strategy
+4. Watch real-time activity in the dashboard
+
+### Documentation
+
+- [Live Monitoring Quick Start](./LIVE_MONITORING_QUICKSTART.md) - 5-minute setup guide
+- [Complete Implementation Guide](./LIVE_MONITORING_GUIDE.md) - Detailed documentation
+- [Troubleshooting Guide](./LIVE_MONITORING_TROUBLESHOOTING.md) - Common issues & solutions
+- [Integration Summary](./LIVE_MONITORING_INTEGRATION.md) - Technical overview
 
 ## Related Projects
 
